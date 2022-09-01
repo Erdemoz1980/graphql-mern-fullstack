@@ -2,8 +2,8 @@
 
 const Spinner = () => {
   return (
-    <div class="spinner-border" role="status">
-  <span class="visually-hidden"></span>
+    <div className="spinner-border" role="status">
+  <span className="visually-hidden"></span>
 </div>
   )
 }
