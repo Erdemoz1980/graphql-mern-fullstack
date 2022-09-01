@@ -1,10 +1,10 @@
-import React from 'react'
+
 
 const Spinner = () => {
   return (
-    <div className='spinner-border' role='status'>
-      <span className='visually-hidden'></span>
-    </div>
+    <div class="spinner-border" role="status">
+  <span class="visually-hidden"></span>
+</div>
   )
 }
 

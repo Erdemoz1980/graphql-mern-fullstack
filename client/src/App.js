@@ -1,15 +1,35 @@
 import {
   ApolloClient,
-  ApolloProvider,
-  InMemoryCache
+  InMemoryCache,
+  ApolloProvider
 } from '@apollo/client';
-import Clients from './components/Clients';
 import Header from './components/Header';
+import Clients from './components/Clients';
+import AddClientModal from './components/AddClientModal';
+import Projects from './components/Projects';
+
+const cache = new InMemoryCache({
+  typePolicies: {
+    Query: {
+      fields: {
+        clients: {
+          merge(existing, incoming) {
+            return incoming
+          }
+        },
+        project: {
+          merge(existing, incoming) {
+            return incoming
+          }
+        }
+      }
+    }
+  }
+});
 
 const client = new ApolloClient({
   uri: 'http://localhost:5000/graphql',
-  cache: new InMemoryCache()
-  
+  cache
 });
 
 const App = () => {
@@ -18,12 +38,14 @@ const App = () => {
       <ApolloProvider client={client}>
         <Header />
         <div className='container'>
-            <Clients />
+          <AddClientModal />
+          <Projects />
+          <Clients />
+         
         </div>
-      
-      </ApolloProvider>
+    </ApolloProvider>
     </>
   )
 }
 
-export default App;
+export default App

@@ -11,4 +11,5 @@ query getClients{
 }
 `;
 
-export { GET_CLIENTS }
+
+export { GET_CLIENTS };

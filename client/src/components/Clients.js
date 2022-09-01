@@ -1,23 +1,25 @@
 import { useQuery } from "@apollo/client";
-import { GET_CLIENTS } from './queries/clientQueries';
+import { GET_CLIENTS } from '../queries/clientQueries';
 import Spinner from './Spinner';
+import Message from "./Message";
 import ClientRow from "./ClientRow";
 
 
 const Clients = () => {
   const { loading, error, data } = useQuery(GET_CLIENTS);
-
+  
   if (loading) return <Spinner />;
-  if (error) return <p>Something went very very wrong! Run!</p>
+  if (error) return <Message variant={'danger'}>
+    Something went wrong</Message>
 
   return (
-    <table className='table table-hover mt-3'>
+    <table className="table table-hover mb-3">
       <thead>
         <tr>
-          <td>Name</td>
-          <td>Email</td>
-          <td>Phone</td>
-          <td></td>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>

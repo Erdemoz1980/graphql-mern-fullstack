@@ -13,8 +13,9 @@ const projectSchema = mongoose.Schema({
     enum: ['Not Started', 'In Progress', 'Completed']
   }
 }, {
-  tmestamps: true
+  timestamps: true
 });
 
 const Project = mongoose.model('Project', projectSchema);
+
 export default Project;
