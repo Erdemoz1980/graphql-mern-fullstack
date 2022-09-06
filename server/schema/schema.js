@@ -78,7 +78,7 @@ const mutation = new GraphQLObjectType({
   fields: {
     //Add a Project
     addProject: {
-      type: ClientType,
+      type: ProjectType,
       args: {
         name: { type: new GraphQLNonNull(GraphQLString) },
         description: { type: new GraphQLNonNull(GraphQLString) },
@@ -159,7 +159,8 @@ const mutation = new GraphQLObjectType({
               completed:{value:'Completed'}
             }
           })
-        }
+        },
+        
       },
       resolve(parent, args) {
         return Project.findByIdAndUpdate(args.id, {
