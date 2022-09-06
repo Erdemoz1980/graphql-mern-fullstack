@@ -5,6 +5,7 @@ import Spinner from "../components/Spinner";
 import Message from "../components/Message";
 import ClientInfo from "../components/ClientInfo";
 import DeleteProjectButton from "../components/DeleteProjectButton";
+import EditProjectForm from '../components/EditProjectForm';
 
 
 const Project = () => {
@@ -17,7 +18,7 @@ const Project = () => {
   if (error) return <Message variant='danger'>
     {error.message}</Message>
   
-  const { project: { id:projectId, name, description, status, client } } = data;
+  const { project, project: { id:projectId, name, description, status, client } } = data;
   
 
   return (
@@ -29,9 +30,11 @@ const Project = () => {
             <h1>{name}</h1>
             <p>{description}</p>
             <h5 className="mt-3">Project Status</h5>
-            <p className="lead">{status}</p>
+            <p className="lead"
+             style={{color:`${status==='Completed' && 'red'}`}}
+            >{status}</p>
             {client && <ClientInfo client={client} />}
-
+            <EditProjectForm project={project} />
             <DeleteProjectButton projectId={projectId} />
 
           </div>
