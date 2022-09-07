@@ -26,12 +26,12 @@ const Project = () => {
       {
         !loading && !error && (
           <div className=" w-75 card p-5">
-            <Link to='/' className="btn btn-info btn-sm w-25 d-inline ms-auto">Go Back</Link>
+            <Link to='/' className="btn btn-secondary btn-sm w-25 d-inline ms-auto">Go Back</Link>
             <h1>{name}</h1>
             <p>{description}</p>
             <h5 className="mt-3">Project Status</h5>
             <p className="lead"
-             style={{color:`${status==='Completed' && 'red'}`}}
+             style={{color:`${status==='Completed' ? 'red' : 'black'}`, fontWeight:`${status==='Completed' ? 'bold' : 'normal'}`}}
             >{status}</p>
             {client && <ClientInfo client={client} />}
             <EditProjectForm project={project} />

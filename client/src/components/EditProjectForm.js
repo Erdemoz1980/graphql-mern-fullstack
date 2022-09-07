@@ -24,9 +24,7 @@ const EditProjectForm = ({project}) => {
 
   const updateProjectHandler = e => {
     e.preventDefault()
-  
     updateProject();
-
   }
 
   return (
@@ -71,7 +69,7 @@ const EditProjectForm = ({project}) => {
         <button
           type='submit'
           className="btn btn-sm btn-primary mt-3"
-        >Submit</button>
+        >Update</button>
       </form>
     </div>
   )
